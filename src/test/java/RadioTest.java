@@ -19,6 +19,15 @@ public class RadioTest {
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void testSetCurrentStationAfterMax() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(29);
+        int expected = 29;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
 
     @Test
     public void testSetCurrentStationInvalid10() {

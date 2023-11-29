@@ -3,13 +3,26 @@ package ru.netology;
 public class Radio {
     private int currentStation;
     private int volume;
+    private final int numStations;
+
+    public Radio() {
+        this.numStations = 10; // значение по умолчанию
+        this.currentStation = 0;
+        this.volume = 0;
+    }
+
+    public Radio(int size) {
+        this.currentStation = 0;
+        this.numStations = currentStation + size;
+    }
+
 
     public int getCurrentStation() {
         return currentStation;
     }
 
     public void setCurrentStation(int station) {
-        if (station >= 0 && station <= 9) {
+        if (station >= 0 && station < numStations) {
             currentStation = station;
         } else {
             System.out.println("Недопустимый номер радиостанции.");
@@ -17,7 +30,7 @@ public class Radio {
     }
 
     public void next() {
-        if (currentStation == 9) {
+        if (currentStation == numStations - 1) {
             currentStation = 0;
         } else {
             currentStation++;
@@ -26,7 +39,7 @@ public class Radio {
 
     public void prev() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = numStations - 1;
         } else {
             currentStation--;
         }
