@@ -10,7 +10,7 @@ public class RadioTest {
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
-
+    
     @Test
     public void testSetCurrentStationValid() {
         Radio radio = new Radio();
